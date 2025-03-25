@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:IFluentApp.Views"
+             x:Class="IFluentApp.Views.Login.v1.LoginView"
+             BackgroundColor="#058f59" Padding="25">
+    <VerticalStackLayout Spacing="20">
+
+        <Image Source="icon_i_fluent.png" 
+               WidthRequest="150" 
+               HeightRequest="150" 
+               HorizontalOptions="Center" />
+
+        <Label Text="Login to your Account"
+               FontSize="18"
+               HorizontalOptions="Start"
+               TextColor="GhostWhite"
+               VerticalOptions="Start" />
+
+        <Frame Padding="5" CornerRadius="10">
+            <Entry Placeholder="Email" Keyboard="Email" MaxLength="44" Text="{Binding UserText}" />
+        </Frame>
+
+        <Frame Padding="5" CornerRadius="10">
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="entryPassword" Placeholder="Password" Keyboard="Text" IsPassword="True" MaxLength="33" HorizontalOptions="StartAndExpand" Text="{Binding PasswordText}" />
+                <ImageButton x:Name="imgVisiblePassword"
+                             Source="icon_eye_close.png" Clicked="imgVisiblePassword_Clicked" 
+                             HeightRequest="25" WidthRequest="25" 
+                             HorizontalOptions="End" Margin="0,0,10,0"/>
+            </StackLayout>
+        </Frame>
+
+        <Button Text="Sign In" CornerRadius="10"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="#1f1c1f"
+                TextColor="White" Command="{Binding SignInCommand}"
+                FontSize="Body"/>
+
+        <Label Text="Or sign in with"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="14"
+               TextColor="GhostWhite"/>
+
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+            <ImageButton Padding="5" CornerRadius="10"
+                    WidthRequest="50" HeightRequest="50" 
+                    BackgroundColor="GhostWhite"
+                    Source="icon_google.svg" />
+
+            <ImageButton Padding="5" CornerRadius="10"
+                    WidthRequest="50" HeightRequest="50" 
+                    BackgroundColor="GhostWhite" 
+                    Source="icon_facebook.svg" />
+            <ImageButton Padding="5" CornerRadius="10"
+                    WidthRequest="50" HeightRequest="50" 
+                    BackgroundColor="GhostWhite" 
+                    Source="icon_twitter.svg" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</views:ContentPageBase>

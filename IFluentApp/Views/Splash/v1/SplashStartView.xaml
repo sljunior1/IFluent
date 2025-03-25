@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="IFluentApp.Views.Splash.v1.SplashStartView"
+             BackgroundColor="#058f59">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#058f59"/>
+    </ContentPage.Behaviors>
+    <Grid>
+        <Image x:Name="animatedImage"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Source="icon_i_fluent.png"/>
+        <StackLayout x:Name="animatedStackLayout1"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     IsVisible="False"
+                     Padding="25">
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   Text="Algumas lutas "/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   Text="só são vencidas quando estamos "/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="#f7d87f"
+                   HorizontalTextAlignment="Center"
+                   Text="prontos  "/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   Text="para ir até o fim."/>
+        </StackLayout>
+        <StackLayout x:Name="animatedStackLayout2"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     IsVisible="False"
+                     Padding="25">
+            <Label FontSize="30"
+                   TextColor="White" 
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Text="Receberei uma boa medida "/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="#f7d87f"
+                   HorizontalTextAlignment="Center"
+                   Text="cheia, sacudida "/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   Text="para caber mais, "/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="#f7d87f"
+                   HorizontalTextAlignment="Center"
+                   Text="transbordante e derramada sobre você."/>
+        </StackLayout>
+        <StackLayout x:Name="animatedStackLayout3"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     IsVisible="False"
+                     Padding="25">
+            <Label FontSize="30"
+                   TextColor="White" 
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Text="Aprender inglês "/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   Text="está relacionado ao"/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="#f7d87f"
+                   HorizontalTextAlignment="Center"
+                   Text="futuro "/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   Text="que quero dar para os "/>
+            <Label FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="#f7d87f"
+                   HorizontalTextAlignment="Center"
+                   Text="meus filhos. "/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

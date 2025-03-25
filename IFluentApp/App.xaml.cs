@@ -1,34 +1,26 @@
-﻿namespace IFluentApp
+﻿using IFluentApp.ViewModels.Login.v1;
+using IFluentApp.Views.Login.v1;
+using IFluentApp.Views.Splash.v1;
+
+namespace IFluentApp
 {
     public partial class App : Application
     {
-        public App()
+        public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
+            Application.Current.UserAppTheme = AppTheme.Light;
 
-            MainPage = new AppShell();
-        }
-        private void Initialize(IServiceProvider serviceProvider, AppTheme currentTheme)
-        {
-            //var mainPage = serviceProvider.GetRequiredService<HomeNotLoggedView>();
-            //var viewModel = serviceProvider.GetRequiredService<HomeNotLoggedViewModel>();
-
-            //mainPage.BindingContext = viewModel;
-            //MainPage = new NavigationPage(mainPage)
-            //{
-            //    BarBackgroundColor = currentTheme.Equals(AppTheme.Light) ? Colors.White : Colors.Black,
-            //};
+            MainPage = new SplashStartView(serviceProvider);
         }
         public static async void ScreenLogin(IServiceProvider serviceProvider)
         {
-            //var mainPage = serviceProvider.GetRequiredService<LoginView>();
-            //var viewModel = serviceProvider.GetRequiredService<LoginViewModel>();
+            var mainPage = serviceProvider.GetRequiredService<LoginView>();
+            var viewModel = serviceProvider.GetRequiredService<LoginViewModel>();
 
-            //await Current.MainPage.Navigation.PushAsync(new NavigationPage(mainPage)
-            //{
-            //    BarBackgroundColor = Colors.DodgerBlue,
-            //    BarTextColor = Colors.White
-            //});
+            mainPage.BindingContext = viewModel;
+
+            Current.MainPage = mainPage;
         }
         public static async void ScreenNotRegistered(IServiceProvider serviceProvider)
         {

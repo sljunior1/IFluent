@@ -3,7 +3,10 @@
     x:Class="IFluentApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:home="clr-namespace:IFluentApp.Views.Home.v1"
     Shell.FlyoutBehavior="Disabled"
     Title="IFluentApp">
-
+    <TabBar>
+        <ShellContent Title="Home"  ContentTemplate="{DataTemplate home:HomeView}"/>
+    </TabBar>
 </Shell>

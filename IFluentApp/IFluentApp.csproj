@@ -20,7 +20,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>IFluentApp</ApplicationTitle>
+		<ApplicationTitle>I Fluent</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.ifluentapp</ApplicationId>
@@ -39,10 +39,9 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#058f59" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -56,6 +55,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.1" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
@@ -64,23 +65,40 @@
 	<ItemGroup>
 	  <Folder Include="Behaviors\" />
 	  <Folder Include="Controls\" />
-	  <Folder Include="Helpers\" />
 	  <Folder Include="Models\" />
-	  <Folder Include="Validations\" />
 	  <Folder Include="ViewModels\Configuration\v1\" />
 	  <Folder Include="ViewModels\Grammar\v1\" />
 	  <Folder Include="ViewModels\Home\v1\" />
-	  <Folder Include="ViewModels\Login\v1\" />
 	  <Folder Include="ViewModels\Progress\v1\" />
 	  <Folder Include="ViewModels\Translate\v1\" />
 	  <Folder Include="ViewModels\Vocabulary\v1\" />
 	  <Folder Include="Views\Configuration\v1\" />
 	  <Folder Include="Views\Grammar\v1\" />
-	  <Folder Include="Views\Home\v1\" />
-	  <Folder Include="Views\Login\v1\" />
 	  <Folder Include="Views\Progress\v1\" />
 	  <Folder Include="Views\Translate\v1\" />
 	  <Folder Include="Views\Vocabulary\v1\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Splash\v1\SplashStartView.xaml.cs">
+	    <DependentUpon>SplashStartView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Home\v1\HomeView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Login\v1\LoginView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Splash\v1\SplashStartView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Resources\Splash\splash.svg" Color="#058f59" BaseSize="128,128" />
 	</ItemGroup>
 
 </Project>
