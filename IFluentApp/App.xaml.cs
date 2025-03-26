@@ -11,7 +11,8 @@ namespace IFluentApp
             InitializeComponent();
             Application.Current.UserAppTheme = AppTheme.Light;
 
-            MainPage = new SplashStartView(serviceProvider);
+            //MainPage = new SplashStartView(serviceProvider);
+           MainPage = new AppShell();
         }
         public static async void ScreenLogin(IServiceProvider serviceProvider)
         {

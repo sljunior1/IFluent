@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.Res;
 using Android.Runtime;
+using static Android.Views.ViewGroup;
 
 namespace IFluentApp
 {
@@ -13,6 +14,15 @@ namespace IFluentApp
             Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping(nameof(Entry), (handler, view) =>
             {
                 if (view is Entry)
+                {
+                    handler.PlatformView.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
+                    handler.PlatformView.SetHintTextColor(ColorStateList.ValueOf(Android.Graphics.Color.Gray));
+                }
+            });
+
+            Microsoft.Maui.Handlers.EditorHandler.Mapper.AppendToMapping(nameof(Editor), (handler, view) =>
+            {
+                if (view is Editor)
                 {
                     handler.PlatformView.BackgroundTintList = ColorStateList.ValueOf(Android.Graphics.Color.Transparent);
                     handler.PlatformView.SetHintTextColor(ColorStateList.ValueOf(Android.Graphics.Color.Gray));

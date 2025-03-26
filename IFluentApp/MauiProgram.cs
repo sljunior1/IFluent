@@ -5,6 +5,7 @@ using IFluentApp.Services.Base.RequestProvider;
 using IFluentApp.Services.Settings;
 using IFluentApp.ViewModels.Login.v1;
 using IFluentApp.Views.Login.v1;
+using Sharpnado.Tabs;
 
 namespace IFluentApp
 {
@@ -16,6 +17,7 @@ namespace IFluentApp
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .UseSharpnadoTabs(loggerEnable: false)
                 .RegisterAppServices()
                 .RegisterViewModels()
                 .RegisterViews()

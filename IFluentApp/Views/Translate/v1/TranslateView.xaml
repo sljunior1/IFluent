@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:IFluentApp.Views"
+             x:Class="IFluentApp.Views.Translate.v1.TranslateView">
+    <Grid BackgroundColor="GhostWhite"
+          RowDefinitions="Auto, Auto"
+          ColumnDefinitions="*">
+        <StackLayout BackgroundColor="White" Padding="20" Grid.Row="0">
+            <Label Text="Translate"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
+            <StackLayout Margin="25,50,25,0" Orientation="Horizontal">
+                <Label x:Name="lblFirst"
+                       Text="English"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalOptions="StartAndExpand"/>
+
+                <Image Source="icon_change.svg"
+                       HorizontalOptions="Center"
+                       HeightRequest="24"
+                       WidthRequest="24"/>
+
+                <Label x:Name="lblSecond"
+                       Text="Portuguese"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalOptions="EndAndExpand"/>
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" Margin="30,30,30,10">
+            <Frame CornerRadius="10"
+               BackgroundColor="White"
+               HeightRequest="200">
+                <Editor x:Name="editText" Placeholder="Enter text..." Keyboard="Text" MaxLength="320" Text="{Binding TranslateText}"/>
+            </Frame>
+            <Button Text="Translate" CornerRadius="10"
+                    BackgroundColor="#1f1c1f"
+                    TextColor="White" Command="{Binding TranslateCommand}" CommandParameter="{Binding Text, Source={x:Reference lblFirst}}"
+                    FontSize="Body" Margin="0,30,0,0"/>
+            <Frame x:Name="frameResult"
+                   IsVisible="False"
+                   CornerRadius="10"
+                   BackgroundColor="White"
+                   Margin="0,20,0,0">
+                <StackLayout>
+                    <Label Text="{Binding ResultText}"/>
+                </StackLayout>
+                <Frame.Triggers>
+                    <DataTrigger TargetType="Frame"
+                                 Binding="{Binding Text,Source={x:Reference editText}}"
+                                 Value="">
+                        <Setter Property="IsVisible" Value="False"/>
+                    </DataTrigger>
+                </Frame.Triggers>
+            </Frame>
+        </StackLayout>
+    </Grid>
+</views:ContentPageBase>
